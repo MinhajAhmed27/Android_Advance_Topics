@@ -1,4 +1,4 @@
-package com.example.androidadvancetopics.ui.main
+package com.example.androidadvancetopics
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.paging.ExperimentalPagingApi
-import com.example.androidadvancetopics.R
 import com.example.androidadvancetopics.databinding.FragmentMainBinding
 import com.example.androidadvancetopics.paging.QuotePagingAdapter
 import com.example.androidadvancetopics.viewmodel.MainViewModel
@@ -15,34 +14,31 @@ import com.example.androidadvancetopics.viewmodel.MainViewModel
 @ExperimentalPagingApi
 class MainFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
     private lateinit var quoteViewModel: MainViewModel
     lateinit var binding: FragmentMainBinding
- /*   override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        quoteViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        val recyclerView = binding.quoteList
-        val adapter = QuotePagingAdapter()
-        recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = adapter
 
 
-        quoteViewModel.list.observe(context) {
-            adapter.submitData(lifecycle, it)
-        }
+        val view = inflater.inflate(R.layout.fragment_main, container, false)
+        /*        quoteViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        return inflater.inflate(R.layout.fragment_main, container, false)
-    }*/
+                val recyclerView = binding.quoteList
+                val adapter = QuotePagingAdapter()
+                recyclerView.setHasFixedSize(true)
+                recyclerView.adapter = adapter
 
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-//        // TODO: Use the ViewModel
-//    }
+
+                quoteViewModel.list.observe(viewLifecycleOwner) {
+
+                    adapter.submitData(lifecycle, it)
+                }
+        */
+
+
+        return view
+    }
 
 }

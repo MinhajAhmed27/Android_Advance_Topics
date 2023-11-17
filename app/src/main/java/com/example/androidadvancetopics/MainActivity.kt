@@ -3,10 +3,11 @@ package com.example.androidadvancetopics
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.paging.ExperimentalPagingApi
 import com.example.androidadvancetopics.databinding.ActivityMainBinding
 import com.example.androidadvancetopics.paging.QuotePagingAdapter
-import com.example.androidadvancetopics.ui.main.MainFragment
 import com.example.androidadvancetopics.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,12 +17,18 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     private lateinit var quoteViewModel: MainViewModel
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_main)
 
+/*        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+
+        navController = navHostFragment.navController*/
+/*
             quoteViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
             val recyclerView = binding.quoteList
@@ -34,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
                 adapter.submitData(lifecycle, it)
             }
+*/
 
 
 //        if (savedInstanceState == null) {
